@@ -1,0 +1,17 @@
+
+.main {
+  flex: 1 1 auto;
+}
+.main h3 {
+  text-align: center;
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: bold;
+  color: #202123;
+  margin: 16px 0 40px;
+}
+.main p {
+	color: #131417;
+	line-height: 180%;
+}
+

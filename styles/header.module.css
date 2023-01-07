@@ -1,0 +1,25 @@
+
+.header {
+	margin: 0px 15px;
+	padding: 20px 0;
+	display: flex;
+	justify-content: space-between;
+}
+.icon {
+	width: 24px;
+ }
+.nav {
+	display: flex;
+	gap: 10px;
+
+}
+.nav a {
+	padding-left: 10px;
+	color: #353740;
+	text-decoration: none;
+	transition: color 0.25s ease 0s;
+}
+.nav a:hover{
+	color: rgb(249, 94, 94);
+	text-decoration: none;
+}

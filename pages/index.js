@@ -1,58 +1,65 @@
-import Head from "next/head";
-import { useState } from "react";
-import styles from "./index.module.css";
+import Head from 'next/head';
+import React from 'react';
+import { useState } from 'react';
+import styles from "../styles/index.module.css";
 
 export default function Home() {
-  const [animalInput, setAnimalInput] = useState("");
-  const [result, setResult] = useState();
+	const [theme, setTheme] = useState('any');
+	const [loading, setLoading] = useState(false);
+	const [result, setResult] = useState('');
 
-  async function onSubmit(event) {
-    event.preventDefault();
-    try {
-      const response = await fetch("/api/generate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ animal: animalInput }),
-      });
+	async function onSubmit(event) {
+		event.preventDefault();
+		if (loading) {
+			return;
+		}
+		setLoading(true);
+		setResult('');
+		const response = await fetch('/api/generate-idea', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ theme }),
+		});
+		const data = await response.json();
+		setResult(data.result.replaceAll('\n', '<br />'));
+		setLoading(false);
+	}
 
-      const data = await response.json();
-      if (response.status !== 200) {
-        throw data.error || new Error(`Request failed with status ${response.status}`);
-      }
+	return (
+		<>
+			<Head>
+				<title>Crazy idea generator</title>
+				<link rel="icon" href="/idea.svg" />
+			</Head>
 
-      setResult(data.result);
-      setAnimalInput("");
-    } catch(error) {
-      // Consider implementing your own error handling logic here
-      console.error(error);
-      alert(error.message);
-    }
-  }
+			<main className={styles.main}>
+				<h3>Crazy idea generator</h3>
+				<form onSubmit={onSubmit}>
+					<input
+						type="text"
+						name="theme"
+						placeholder="Enter any theme"
+						value={theme}
+						onChange={(e) => setTheme(e.target.value)}
+					/>
+					<input type="submit" value="Generate crazy ideas" />
+				</form>
 
-  return (
-    <div>
-      <Head>
-        <title>OpenAI Quickstart</title>
-        <link rel="icon" href="/dog.png" />
-      </Head>
+				{loading
+					? (
+						<div>
+							<h3>Looking for the crazy ideas 💡</h3>
+						</div>
+					)
+					: <div
+						className={styles.result}
+						dangerouslySetInnerHTML={{ __html: result }}
+					/>
+				}
 
-      <main className={styles.main}>
-        <img src="/dog.png" className={styles.icon} />
-        <h3>Name my pet</h3>
-        <form onSubmit={onSubmit}>
-          <input
-            type="text"
-            name="animal"
-            placeholder="Enter an animal"
-            value={animalInput}
-            onChange={(e) => setAnimalInput(e.target.value)}
-          />
-          <input type="submit" value="Generate names" />
-        </form>
-        <div className={styles.result}>{result}</div>
-      </main>
-    </div>
-  );
+			</main>
+		</>
+	);
 }
