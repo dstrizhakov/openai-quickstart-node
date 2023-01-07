@@ -1,4 +1,5 @@
 # This is a NextJS tutorial project using the openAI API. It was created as part of self-study and turned out to be funny.
+![screencapture-localhost-3000-2023-01-07-22_44_07](https://user-images.githubusercontent.com/95134334/211168023-a67871e9-e2b1-4cd9-b6cb-603e6b74ac4e.png)
 
 The template is used as the primary source, details below.
 
