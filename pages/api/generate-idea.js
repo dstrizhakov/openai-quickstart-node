@@ -50,7 +50,7 @@ export default async function (req, res) {
 }
 
 function generatePrompt(theme) {
-	const capitalizedTheme =
-		theme[0].toUpperCase() + theme.slice(1).toLowerCase();
-	return `Suggest 3 crazy ideas in ${capitalizedTheme} theme.`
+	// const capitalizedTheme =
+	// 	theme[0].toUpperCase() + theme.slice(1).toLowerCase();
+	return `Suggest 3 crazy ideas in ${theme} theme.`
 }

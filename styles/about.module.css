@@ -11,6 +11,8 @@
   margin: 16px 0 40px;
 }
 .main p {
+	margin: 0 10px;
+	padding-bottom: 10px;
 	color: #131417;
 	line-height: 180%;
 }
