@@ -1,3 +1,7 @@
+# This is a NextJS tutorial project using the openAI API. It was created as part of self-study and turned out to be funny.
+
+The template is used as the primary source, details below.
+
 # OpenAI API Quickstart - Node.js example app
 
 This is an example pet name generator app used in the OpenAI API [quickstart tutorial](https://beta.openai.com/docs/quickstart). It uses the [Next.js](https://nextjs.org/) framework with [React](https://reactjs.org/). Check out the tutorial or follow the instructions below to get set up.
