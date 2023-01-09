@@ -13,13 +13,17 @@
 	gap: 10px;
 
 }
-.nav a {
+.navLink {
 	padding-left: 10px;
 	color: #353740;
 	text-decoration: none;
 	transition: color 0.25s ease 0s;
 }
-.nav a:hover{
+.navLink:hover{
+	color: rgb(249, 94, 94);
+	text-decoration: none;
+}
+.navLink.active{
 	color: rgb(249, 94, 94);
 	text-decoration: none;
 }
